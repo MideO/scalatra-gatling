@@ -5,7 +5,7 @@ import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef.{bodyString, http, status}
 
 class PingServletTest extends ScalatraGatlingTest {
-  override def testScenario(): ScenarioBuilder = scenario("Gatling Test")
+  override def testScenario(): ScenarioBuilder = scenario("PingServlet Test")
     .exec(http("index")
       .get("/").check(status is 200)
       .check(bodyString is "Ping Servlet Home")
@@ -15,5 +15,5 @@ class PingServletTest extends ScalatraGatlingTest {
   ).exec(http("ping")
       .get("/ping").check(status is 200)
       .check(bodyString is "pong"))
-      
+
 }

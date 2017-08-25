@@ -1,7 +1,7 @@
 package com.example.app
 
 import akka.actor.ActorSystem
-import org.scalatra.{FutureSupport, ScalatraServlet}
+import org.scalatra.{FutureSupport, NotFound, Ok, ScalatraServlet}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -12,13 +12,13 @@ trait ScalatraGatlingStack extends ScalatraServlet with FutureSupport {
 
   get("/") {
     Future {
-      "Ping Servlet Home"
+      Ok("Ping Servlet Home")
     }
   }
 
   notFound {
     Future {
-      halt(404,  "Not Found")
+      NotFound("Not Found")
     }
   }
 }

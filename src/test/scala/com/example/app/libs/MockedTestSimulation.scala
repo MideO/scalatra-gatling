@@ -1,17 +1,5 @@
 package com.example.app.libs
 
-trait MockedTestSimulation
-  extends TestSimulation {
-  before {
-    TestStubServer.start()
-  }
-
-  after {
-    TestStubServer.stop()
-  }
-}
-
-
 trait LocalTestSimulation
   extends TestSimulation
   with TestApplication {
@@ -24,7 +12,14 @@ trait LocalTestSimulation
   }
 }
 
+trait MockedTestSimulation
+  extends TestSimulation
+  with LocalTestSimulation {
+  before {
+    TestStubServer.start()
+  }
 
-trait LocalMockedTestSimulation
-  extends LocalTestSimulation
-  with MockedTestSimulation
+  after {
+    TestStubServer.stop()
+  }
+}
