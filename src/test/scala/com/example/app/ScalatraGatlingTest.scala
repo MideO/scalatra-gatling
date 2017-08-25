@@ -15,6 +15,7 @@ trait ScalatraGatlingTest
     AsciiArt.draw("Scalatra-Gatling", 30, 200)
     TimeUnit.SECONDS.sleep(2)
   }
+
   override val protocol: HttpProtocol = http
     .baseURL(url)
     .disableWarmUp

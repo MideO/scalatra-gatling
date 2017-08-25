@@ -1,5 +1,6 @@
 package com.example.app
 
+import akka.event.slf4j.Logger
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.MappingBuilder
 import com.github.tomakehurst.wiremock.client.WireMock.{aResponse, urlPathMatching}
@@ -21,9 +22,26 @@ package object libs {
   }
 
   trait TestApplication {
+    private val logger = Logger(this.getClass.getName)
+
     def url:String
-    def start():Unit
-    def stop():Unit
+    def doStart():Unit
+    def doStop(): Unit
+
+
+    def start():Unit = {
+      logger.info("Starting test application")
+      doStart()
+      logger.info("Started test application")
+    }
+
+    def stop():Unit = {
+      logger.info("Stopping test application")
+      doStop()
+      logger.info("Stopped test application")
+    }
+
+
   }
 
   object TestStubServer {
