@@ -21,7 +21,11 @@ class ReverseTextServletTest extends ScalatraGatlingTest {
         .get("/reverse?text=${t}").check(status is 200)
         .check(bodyString is "${r}")
       )
-    }
+    }.exec(
+      http("reverse no params")
+        .get("/reverse").check(status is 400)
+        .check(bodyString is "text query parameter required, example reverse?text=red star")
+    )
   }
 }
 
