@@ -2,10 +2,13 @@ package com.example.app
 
 import com.example.app.libs.TestRunner
 import io.gatling.core.Predef._
+import io.gatling.core.controller.inject.InjectionStep
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
+import concurrent.duration._
 
 class ReverseTextServletTest extends ScalatraGatlingTest {
+  override def injection: InjectionStep = rampUsers(10) over(5 seconds)
   override def testScenario(): ScenarioBuilder = {
     val data = Array(
       Map("t" -> "abbbba", "r" -> "abbbba"),

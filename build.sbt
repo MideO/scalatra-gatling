@@ -15,6 +15,14 @@ scalaVersion := "2.11.8"
 
 resolvers += Classpaths.typesafeReleases
 
+scalacOptions ++= Seq(
+  "-feature",
+  "-language:implicitConversions",
+  "-language:higherKinds",
+  "-language:existentials",
+  "-language:postfixOps"
+)
+
 libraryDependencies ++= Seq(
   "org.scalatra" %% "scalatra" % ScalatraVersion,
   "com.typesafe.akka" % "akka-actor_2.11" % "2.5.4",
