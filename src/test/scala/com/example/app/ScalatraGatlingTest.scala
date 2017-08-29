@@ -1,6 +1,6 @@
 package com.example.app
 
-import com.example.app.libs.{AsciiArt, LocalTestSimulation}
+import com.example.app.libs.LocalTestSimulation
 import io.gatling.core.Predef._
 import io.gatling.core.controller.inject.InjectionStep
 import io.gatling.http.Predef._
@@ -9,9 +9,6 @@ import io.gatling.http.protocol.HttpProtocol
 trait ScalatraGatlingTest
   extends LocalTestSimulation
     with ScalatraTestApplication {
-  before {
-    AsciiArt.draw("Scalatra-Gatling", 30, 200)
-  }
 
   override val protocol: HttpProtocol = http
     .baseURL(url)

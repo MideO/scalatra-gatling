@@ -1,6 +1,6 @@
 package com.example.app
 
-import com.example.app.libs.TestApplication
+import com.example.app.libs.{AsciiArt, TestApplication}
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.DefaultServlet
 import org.eclipse.jetty.webapp.WebAppContext
@@ -19,6 +19,7 @@ trait ScalatraTestApplication extends TestApplication {
     context.addServlet(classOf[DefaultServlet], "/")
     server.setHandler(context)
     server.start()
+    AsciiArt.draw("Scalatra-Gatling", 30, 200)
   }
 
   override def doStop(): Unit = {
