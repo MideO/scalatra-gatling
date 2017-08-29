@@ -5,8 +5,8 @@
 ## Build & test & Run ##
 
 ```sh
-$ cd scalatra_gatling
-$ ./sbt
+$ cd scalatra-gatling
+$ sbt
 > gatling:test
 > jetty:start
 > browse
