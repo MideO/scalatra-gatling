@@ -2,6 +2,7 @@ package com.example.app.libs
 
 import java.awt.{Font, Graphics2D, RenderingHints}
 import java.awt.image.BufferedImage
+import java.util.concurrent.TimeUnit
 
 object AsciiArt {
   def draw(text: String, height: Int = 30, width: Int = 100, symbol: String = "$", size: Int = 14): Unit = {
@@ -13,6 +14,7 @@ object AsciiArt {
     graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
     graphics.drawString(text, 10, 20)
     draw(img, height, width, symbol)
+    TimeUnit.MILLISECONDS.sleep(500)
   }
 
   private def draw(img: BufferedImage, height: Int, width: Int, symbol: String): Unit = {

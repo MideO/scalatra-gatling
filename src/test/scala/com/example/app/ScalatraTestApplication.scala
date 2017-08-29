@@ -1,7 +1,5 @@
 package com.example.app
 
-import java.util.concurrent.TimeUnit
-
 import com.example.app.libs.TestApplication
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.DefaultServlet
@@ -21,7 +19,6 @@ trait ScalatraTestApplication extends TestApplication {
     context.addServlet(classOf[DefaultServlet], "/")
     server.setHandler(context)
     server.start()
-    while(!server.isRunning) TimeUnit.SECONDS.sleep(1)
   }
 
   override def doStop(): Unit = {
