@@ -84,12 +84,12 @@ package object libs {
     }
 
     def saveResultDirectoryTo(s:String): this.type ={
-      props.resultsDirectory("build/reports/performanceTest")
+      props.resultsDirectory(s)
       this
     }
 
     def fromSourceDirectory(s:String): this.type = {
-      props.sourcesDirectory("src/test")
+      props.sourcesDirectory(s)
       this
     }
 
